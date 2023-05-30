@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
   <script>
     function GetURLParameter(sParam)
     {
@@ -24,7 +25,15 @@
         }
     }
     
-    console.log(GetURLParameter("test"))
+    $(document).ready(
+
+
+      $.post("https://prod-144.westeurope.logic.azure.com/workflows/1ee87b2da9174437975f94c5d5889f84/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=4tRvH9-mkxUgWUvAlb8ehKZlH3uGyIroGoX2vQcIrv0&jobID=" + GetURLParameter("test"), 
+            function(data, status){
+              alert("Data: " + data + "\nStatus: " + status);
+            })
+      );
+    
   </script>
   <main>
     <h1>Vanilla JavaScript App</h1>
