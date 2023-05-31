@@ -12,9 +12,10 @@
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
   <script>
     $('#succesMsg').hide()
+    $('#failMsg').hide()
 
     var url = "https://prod-144.westeurope.logic.azure.com/workflows/1ee87b2da9174437975f94c5d5889f84/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=4tRvH9-mkxUgWUvAlb8ehKZlH3uGyIroGoX2vQcIrv0&jobID=";
-    
+
     function GetURLParameter(sParam)
     {
         var sPageURL = window.location.search.substring(1);
@@ -36,6 +37,8 @@
 
               if (status == 'success') {
                 $('#successMsg').show();
+              } else {
+                $('#failMsg').show();
               }
                alert("Data: " + data + "\nStatus: " + status);
              })
@@ -46,6 +49,7 @@
     <h1>Essentials for Accounts Report</h1>
 
     <centre><p id="successMsg" style="text-align: center;">The report is now being prepared and will be delivered to your mailbox shortly. You may close this page now.</p></centre>
+    <centre><p id="failMsg" style="text-align: center;">There was an unexpected error while trying to prepare the report. Please try again later. If the problem persists please contact report administrator.</p></centre>
   </main>
 </body>
 
